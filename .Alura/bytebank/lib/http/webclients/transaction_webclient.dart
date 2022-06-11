@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:bytebank/models/transaction.dart';
 import 'package:bytebank/http/webclient.dart';
+import 'package:flutter/material.dart' show debugPrint;
 
 class TransactionWebClient {
   Future<List<Transaction>> findAll() async {
@@ -27,8 +28,11 @@ class TransactionWebClient {
       },
       body: transactionJson,
     );
+    debugPrint("Status code: ${response.statusCode}");
     if (response.statusCode == 400) {
-      throw Exception("There was an error submitting transaction");
+      return Future.error("There was an error submitting transaction");
+    } else if (response.statusCode == 401) {
+      return Future.error("Authentication failed");
     }
     return Transaction.fromJson(jsonDecode(response.body));
   }

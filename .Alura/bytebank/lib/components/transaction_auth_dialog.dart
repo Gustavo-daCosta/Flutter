@@ -24,6 +24,7 @@ class _TransactionAuthDialogState extends State<TransactionAuthDialog> {
         obscureText: true,
         maxLength: 4,
         keyboardType: const TextInputType.numberWithOptions(),
+        autofocus: true,
         textAlign: TextAlign.center,
         style: const TextStyle(
           fontSize: 64,

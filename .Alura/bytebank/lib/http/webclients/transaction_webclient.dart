@@ -8,18 +8,20 @@ class TransactionWebClient {
   Future<List<Transaction>> findAll() async {
     Response response;
     try {
-      response = await client.get(Uri.parse(baseUrl))
-          .timeout(const Duration(seconds: 5));
+      response = await client.get(Uri.parse(baseUrl));
     } catch (error) {return [];}
     if (response.statusCode == 200) {
       final List<dynamic> decodedJson = jsonDecode(response.body);
-      return decodedJson.map((dynamic json) => Transaction.fromJson(json)).toList();
-    }
-    return [];
+      return decodedJson.map((dynamic json) => Transaction.fromJson(json))
+          .toList();
+    } return [];
   }
 
   Future<Transaction> save(Transaction transaction, String password) async {
     final String transactionJson = jsonEncode(transaction.toJson());
+
+    await Future.delayed(const Duration(seconds: 10));
+
     final Response response = await client.post(
       Uri.parse(baseUrl),
       headers: <String, String>{
@@ -28,12 +30,29 @@ class TransactionWebClient {
       },
       body: transactionJson,
     );
+
     debugPrint("Status code: ${response.statusCode}");
-    if (response.statusCode == 400) {
-      return Future.error("There was an error submitting transaction");
-    } else if (response.statusCode == 401) {
-      return Future.error("Authentication failed");
+    if (response.statusCode == 200) {
+      return Transaction.fromJson(jsonDecode(response.body));
     }
-    return Transaction.fromJson(jsonDecode(response.body));
+    throw HttpException(_getMessage(transaction.value, response.statusCode));
+    // TODO: TESTAR ERROS INESPERADOS
   }
+
+  String _getMessage(double value, int statusCode) {
+    if (_statusCodeResponses.containsKey(statusCode)) {
+      return _statusCodeResponses[value <= 0 ? 400 : statusCode].toString();
+    } return "Unknown error";
+  }
+
+  static final Map<int, String> _statusCodeResponses = {
+    400 : "There was an error submitting transaction",
+    401 : "Authentication failed",
+    409 : "Transaction already exists",
+  };
+}
+
+class HttpException implements Exception {
+  final String message;
+  HttpException(this.message);
 }

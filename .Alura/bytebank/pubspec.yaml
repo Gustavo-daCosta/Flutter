@@ -42,6 +42,7 @@ dev_dependencies:
   path:
   http:
   http_interceptor:
+  uuid:
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

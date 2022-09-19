@@ -6,4 +6,4 @@ final Client client = InterceptedClient.build(
   interceptors: [LoggingInterceptor()],
   requestTimeout: const Duration(seconds: 5),
 );
-const String baseUrl = r"http://192.168.0.249:8080/transactions";
+const String baseUrl = r"http://192.168.0.249:8080/abc";

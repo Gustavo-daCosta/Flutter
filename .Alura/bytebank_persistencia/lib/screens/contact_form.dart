@@ -3,7 +3,6 @@ import 'package:bytebank/models/contact.dart';
 import 'package:flutter/material.dart';
 
 class ContactForm extends StatefulWidget {
-
   const ContactForm({Key? key}) : super(key: key);
 
   @override

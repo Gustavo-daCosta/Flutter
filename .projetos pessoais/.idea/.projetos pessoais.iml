@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/e_commerce/build" />
+      <excludeFolder url="file://$MODULE_DIR$/e_commerce/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/e_commerce/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/currency_converter/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/currency_converter/build" />
+      <excludeFolder url="file://$MODULE_DIR$/currency_converter/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Outros/bible_da_lu/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Outros/bible_da_lu/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Outros/bible_da_lu/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/contact/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/contact/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/contact/build" />
+      <excludeFolder url="file://$MODULE_DIR$/calculator/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/calculator/build" />
+      <excludeFolder url="file://$MODULE_DIR$/calculator/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app_teste/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app_teste/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app_teste/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

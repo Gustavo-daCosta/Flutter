@@ -1,6 +1,9 @@
 import 'package:bytebank/screens/contacts_list.dart';
 import 'package:bytebank/screens/transactions_list.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+
+final fatalErrorTest = FirebaseCrashlytics.instance.recordError(Exception(), StackTrace.current, fatal: true);
 
 class DashBoard extends StatelessWidget {
   const DashBoard({Key? key}) : super(key: key);
@@ -94,11 +97,12 @@ class _FeatureItem extends StatelessWidget {
           ),
         ),
       ),
-    );      
+    );
   }
 }
 
 void _showContactsList(BuildContext context) {
+  //FirebaseCrashlytics.instance.crash();
   Navigator.of(context).push(
     MaterialPageRoute(
       builder: (context) => const ContactsList(),
